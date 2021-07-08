@@ -1,33 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+
     android:orientation="vertical"
+    android:background="@drawable/green"
+
+
     android:layout_height="wrap_content">
-<LinearLayout
+<RelativeLayout
+    android:background="@drawable/green"
     android:layout_width="match_parent"
     android:layout_height="60dp"
+
     android:orientation="horizontal">
+
+<CheckBox
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:id="@+id/checkbox"/>
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/flower"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:id="@+id/idTV"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="10dp"
         android:text="1"
-        android:layout_marginLeft="30dp"
-        android:textSize="20dp"
+        android:textColor="#F29191"
+        android:textSize="30dp"
+        android:visibility="gone"
+        android:layout_marginLeft="0dp"
         android:layout_height="30dp"/>
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+       android:background="@drawable/delete"
+        android:layout_alignParentRight="true"
+        android:id="@+id/delete"/>
 
     <TextView
         android:id="@+id/tasknameTV"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginTop="0dp"
+        android:textColor="#F29191"
+        android:layout_marginLeft="60dp"
         android:fontFamily="@font/fontbir"
         android:text="sdgfdgdf"
         android:textSize="30dp" />
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkbox"
-        android:layout_marginLeft="200dp"/>
-</LinearLayout>
-</LinearLayout>
+
+</RelativeLayout>
+</androidx.cardview.widget.CardView>

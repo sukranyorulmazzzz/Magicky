@@ -4,29 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back2"
+    android:background="@drawable/green"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_marginLeft="40dp"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/dailyplanner"></ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/fontbir"
+        android:text="DAILY PLANNER"
+        android:textColor="#F29191"
+        android:textSize="80dp"
+        android:textStyle="bold" />
+
+
+    <androidx.appcompat.widget.Toolbar
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:id="@+id/toolbar"
+        android:visibility="gone"
+    android:background="#94D0CC"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    />
 
 </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp">
+        android:layout_height="400dp"
+        android:orientation="vertical">
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:id="@+id/rv"
             android:layout_height="400dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="No Data Found"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:id="@+id/tv_empty"/>
     </LinearLayout>
 <LinearLayout
     android:layout_width="match_parent"
@@ -37,13 +63,13 @@
         android:id="@+id/taskName"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:textColor="#7B6079"
+        android:textColor="#F29191"
         android:hint="What is your plan today?" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SAVE"
-        android:backgroundTint="#7B6079"
+        android:backgroundTint="#F29191"
         android:id="@+id/insertBtn"/>
 
 </LinearLayout>

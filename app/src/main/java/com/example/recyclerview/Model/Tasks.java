@@ -33,4 +33,3 @@ public class Tasks extends RealmObject {
         this.task_name = task_name;
     }
 }
-
