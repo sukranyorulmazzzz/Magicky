@@ -1,13 +1,10 @@
 package com.example.recyclerview;
 
-import android.widget.ListView;
-
 import com.example.recyclerview.Model.Tasks;
 
 import java.util.List;
 
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
 import io.realm.Sort;
 
 public class RealMHelper {
@@ -46,7 +43,7 @@ public class RealMHelper {
         });
     }
 
-    public void deleteData(final int id){
+    public void deleteData(final String id){
 
         final Tasks item = realm.where(Tasks.class).equalTo("task_id", id).findFirst();
          realm.executeTransaction(new Realm.Transaction() {
@@ -61,4 +58,6 @@ public class RealMHelper {
        });
 
     }
+
+
 }

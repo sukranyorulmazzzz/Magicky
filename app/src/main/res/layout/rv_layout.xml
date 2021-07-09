@@ -8,22 +8,20 @@
 
     android:layout_height="wrap_content">
 <RelativeLayout
+    android:id="@+id/relativelayout"
     android:background="@drawable/green"
     android:layout_width="match_parent"
     android:layout_height="60dp"
 
     android:orientation="horizontal">
 
-<CheckBox
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:id="@+id/checkbox"/>
+
     <ImageView
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginLeft="30dp"
-        android:background="@drawable/flower"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/flower"
+        android:id="@+id/image_view"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -38,9 +36,10 @@
     <Button
         android:layout_width="30dp"
         android:layout_height="30dp"
-       android:background="@drawable/delete"
-        android:layout_alignParentRight="true"
-        android:id="@+id/delete"/>
+        android:background="@drawable/like"
+        android:layout_marginLeft="350dp"
+        android:id="@+id/like"/>
+
 
     <TextView
         android:id="@+id/tasknameTV"
@@ -52,6 +51,7 @@
         android:fontFamily="@font/fontbir"
         android:text="sdgfdgdf"
         android:textSize="30dp" />
+
 
 </RelativeLayout>
 </androidx.cardview.widget.CardView>
