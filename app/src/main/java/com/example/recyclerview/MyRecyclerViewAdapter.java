@@ -55,7 +55,25 @@ public class MyRecyclerViewAdapter extends RealmRecyclerViewAdapter<Tasks,MyRecy
 
         holder.idTV.setText(String.valueOf(tasks.getTask_id()));
         holder.tasknameTV.setText(tasks.getTask_name());
+
+
+        final ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+
+                    RealMHelper helper = new RealMHelper();
+                    helper.deleteData(data.get(position).getTask_id());
+
+            }
+        };
+
         holder.like.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 

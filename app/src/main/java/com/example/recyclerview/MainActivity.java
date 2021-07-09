@@ -95,24 +95,23 @@ public class MainActivity extends AppCompatActivity {
          rv.setAdapter(adapter);
          ItemTouchHelper helper=new ItemTouchHelper(callback);
          helper.attachToRecyclerView(rv);
-    }
+            }
 
 
-    ItemTouchHelper.SimpleCallback callback=new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+    final ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
         @Override
         public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
             return false;
         }
 
         @Override
-        public void onSwiped( RecyclerView.ViewHolder viewHolder, int direction) {
-
-          //  RealMHelper helper=new RealMHelper();
-          //  helper.deleteData(data.get(direction).getTask_id());
-          // Toast.makeText(getApplicationContext(),"Deleted",Toast.LENGTH_LONG).show();
+        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
 
         }
     };
+
+
+
 
 
 }
