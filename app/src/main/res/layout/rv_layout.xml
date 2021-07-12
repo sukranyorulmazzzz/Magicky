@@ -16,13 +16,14 @@
     android:orientation="horizontal">
 
 
-    <ImageView
+    <Button
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
-        android:src="@drawable/redd"
-        android:id="@+id/image_view"
+
+        android:background="@drawable/icondelete"
+        android:id="@+id/icondelete"
         />
     <TextView
         android:layout_width="wrap_content"
