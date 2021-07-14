@@ -1,4 +1,4 @@
-package com.example.recyclerview
+package com.example.recyclerview.UI
 
 import com.example.recyclerview.Model.Tasks
 import io.realm.Realm

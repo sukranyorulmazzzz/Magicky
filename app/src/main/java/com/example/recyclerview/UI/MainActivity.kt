@@ -1,4 +1,4 @@
-package com.example.recyclerview
+package com.example.recyclerview.UI
 
 import android.os.Bundle
 import android.view.View
@@ -6,9 +6,10 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.recyclerview.MainActivity
+import com.example.recyclerview.Adapter.MyRecyclerViewAdapter
 import com.example.recyclerview.Model.Tasks
 import com.example.recyclerview.Model.VariableHolder
+import com.example.recyclerview.R
 import io.realm.OrderedRealmCollection
 import io.realm.Realm
 import io.realm.RealmConfiguration

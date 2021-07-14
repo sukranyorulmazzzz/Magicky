@@ -50,7 +50,7 @@
         android:layout_marginTop="10dp"
         android:textColor="@color/black"
         android:layout_marginLeft="60dp"
-        android:fontFamily="@font/dort"
+        android:fontFamily="@font/magic"
         android:text="sdgfdgdf"
         android:textSize="25dp" />
 

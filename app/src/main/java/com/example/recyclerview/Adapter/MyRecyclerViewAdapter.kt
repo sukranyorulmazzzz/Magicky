@@ -1,4 +1,4 @@
-package com.example.recyclerview
+package com.example.recyclerview.Adapter
 
 import android.app.AlertDialog
 import android.view.LayoutInflater
@@ -9,7 +9,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.Model.Tasks
-import com.example.recyclerview.MyRecyclerViewAdapter.MyViewHolder
+import com.example.recyclerview.Adapter.MyRecyclerViewAdapter.MyViewHolder
+import com.example.recyclerview.UI.MainActivity
+import com.example.recyclerview.R
+import com.example.recyclerview.UI.RealMHelper
 import com.google.firebase.database.FirebaseDatabase
 import io.realm.OrderedRealmCollection
 import io.realm.RealmRecyclerViewAdapter
@@ -33,6 +36,9 @@ class MyRecyclerViewAdapter(data: OrderedRealmCollection<Tasks?>) :
         holder.tasknameTV.text = tasks.task_name
         holder.icondelete.setOnClickListener { v ->
             val builder = AlertDialog.Builder(v.rootView.context)
+
+            //ayrı bi classa ekle
+
             val dialogview =
                 LayoutInflater.from(v.rootView.context).inflate(R.layout.custom_dialog, null)
             builder.setView(dialogview)
