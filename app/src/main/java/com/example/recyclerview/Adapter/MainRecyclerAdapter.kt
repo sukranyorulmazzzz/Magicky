@@ -1,6 +1,7 @@
 package com.example.recyclerview.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,49 +11,52 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.Model.AllCategory
 import com.example.recyclerview.Model.CategoryItem
 import com.example.recyclerview.R
+import com.example.recyclerview.UI.Home
+import com.example.recyclerview.UI.MovieDetails
 
 
-class MainRecyclerAdapter(private val context: Context, private val allCategory:List<AllCategory>):
-    RecyclerView.Adapter<MainRecyclerAdapter.MainViewHolder>(){
-
-    private lateinit var mListener: onItemClickListener
-    interface onItemClickListener{
-        fun onItemClick(position: Int)
+class MainRecyclerAdapter(
+    private val context: Context,
+    private val allCategoryList: List<AllCategory>
+) : RecyclerView.Adapter<MainRecyclerAdapter.MainViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
+        return MainViewHolder(
+            LayoutInflater.from(context).inflate(R.layout.main_recycler_row_item, parent, false)
+        )
     }
-    fun setOnItemClickListener(listener:onItemClickListener){
-        mListener=listener
 
-    }
-
-    class MainViewHolder(itemView: View,listener:onItemClickListener):RecyclerView.ViewHolder(itemView){
-
-       var categoryTitle: TextView
-       var itemRecycler:RecyclerView
-
-        init{
-            categoryTitle=itemView.findViewById(R.id.cat_title)
-            itemRecycler=itemView.findViewById(R.id.item_recycler)
-            itemView.setOnClickListener{
-                listener.onItemClick(adapterPosition)
-            }
+    override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
+        holder.categoryTitle.text = allCategoryList[position].categoryTitle
+        setCatItemRecycler(holder.itemRecycler, allCategoryList[position].categoryItemList)
+        holder.itemView.setOnClickListener {
+            val i = Intent(context, MovieDetails::class.java)
+            i.putExtra("songName", allCategoryList[position].categoryTitle)
+            context.startActivity(i)
         }
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType:Int):MainViewHolder{
-        return MainViewHolder(LayoutInflater.from(context).inflate(R.layout.main_recycler_row_item,parent,false),mListener)
-    }
-    override fun getItemCount():Int{
-      return allCategory.size
-    }
-    override fun onBindViewHolder(holder:MainViewHolder, position:Int){
 
-        holder.categoryTitle.text=allCategory[position].categoryTitle
-        setCatItemRecycler(holder.itemRecycler,allCategory[position].categoryItem)
+    override fun getItemCount(): Int {
+        return allCategoryList.size
     }
 
-    private fun setCatItemRecycler(recyclerView: RecyclerView,categoryItem:List<CategoryItem>){
-        val itemRecyclerAdapter=CategoryItemAdapter(context,categoryItem)
-        recyclerView.layoutManager=LinearLayoutManager(context,RecyclerView.HORIZONTAL,false)
-        recyclerView.adapter=itemRecyclerAdapter
+    class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var categoryTitle: TextView
+        var itemRecycler: RecyclerView
+
+        init {
+            categoryTitle = itemView.findViewById(R.id.cat_title)
+            itemRecycler = itemView.findViewById(R.id.item_recycler)
+        }
+    }
+
+    private fun setCatItemRecycler(
+        recyclerView: RecyclerView,
+        categoryItemList: List<CategoryItem>
+    ) {
+        val itemRecyclerAdapter = CategoryItemRecyclerAdapter(
+            context, categoryItemList
+        )
+        recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+        recyclerView.adapter = itemRecyclerAdapter
     }
 }
-

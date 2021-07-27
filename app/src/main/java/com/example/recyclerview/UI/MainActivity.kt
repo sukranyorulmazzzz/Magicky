@@ -10,6 +10,8 @@ import com.example.recyclerview.Adapter.MyRecyclerViewAdapter
 import com.example.recyclerview.Model.Tasks
 import com.example.recyclerview.Model.VariableHolder
 import com.example.recyclerview.R
+
+
 import io.realm.OrderedRealmCollection
 import io.realm.Realm
 import io.realm.RealmConfiguration

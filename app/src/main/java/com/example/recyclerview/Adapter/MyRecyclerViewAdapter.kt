@@ -8,18 +8,19 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.recyclerview.Model.Tasks
+
 import com.example.recyclerview.Adapter.MyRecyclerViewAdapter.MyViewHolder
 import com.example.recyclerview.UI.MainActivity
 import com.example.recyclerview.R
 import com.example.recyclerview.UI.RealMHelper
+
 import com.google.firebase.database.FirebaseDatabase
 import io.realm.OrderedRealmCollection
 import io.realm.RealmRecyclerViewAdapter
 import java.util.*
 
-class MyRecyclerViewAdapter(data: OrderedRealmCollection<Tasks?>) :
-    RealmRecyclerViewAdapter<Tasks?, MyViewHolder>(
+class MyRecyclerViewAdapter(data: OrderedRealmCollection<com.example.recyclerview.Model.Tasks?>) :
+    RealmRecyclerViewAdapter<com.example.recyclerview.Model.Tasks?, MyViewHolder>(
         data, true
     ) {
     var mainActivity: MainActivity? = null
