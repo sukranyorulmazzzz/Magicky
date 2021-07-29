@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.Model.AllCategory
 import com.example.recyclerview.Model.CategoryItem
 import com.example.recyclerview.R
-import com.example.recyclerview.UI.Home
-import com.example.recyclerview.UI.MovieDetails
+import com.example.recyclerview.UI.SongDetails
 
 
 class MainRecyclerAdapter(
@@ -29,8 +28,9 @@ class MainRecyclerAdapter(
         holder.categoryTitle.text = allCategoryList[position].categoryTitle
         setCatItemRecycler(holder.itemRecycler, allCategoryList[position].categoryItemList)
         holder.itemView.setOnClickListener {
-            val i = Intent(context, MovieDetails::class.java)
+            val i = Intent(context, SongDetails::class.java)
             i.putExtra("songName", allCategoryList[position].categoryTitle)
+            i.putExtra("songExplanation", allCategoryList[position].categoryExplanation)
             context.startActivity(i)
         }
     }

@@ -9,8 +9,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.Model.CategoryItem
 import com.example.recyclerview.R
-import com.example.recyclerview.UI.Home
-import com.example.recyclerview.UI.MovieDetails
+import com.example.recyclerview.UI.SongDetails
 
 class CategoryItemRecyclerAdapter(
     private val context: Context,
@@ -25,10 +24,11 @@ class CategoryItemRecyclerAdapter(
     override fun onBindViewHolder(holder: CategoryItemViewHolder, position: Int) {
         holder.itemImage.setImageResource(categoryItemList[position].imageUrl)
         holder.itemImage.setOnClickListener {
-            val i = Intent(context, MovieDetails::class.java)
+            val i = Intent(context, SongDetails::class.java)
             i.putExtra("songImage", categoryItemList[position].imageUrl)
             i.putExtra("songId", categoryItemList[position].itemId)
             i.putExtra("songName", categoryItemList[position].songName)
+            i.putExtra("songExplanation", categoryItemList[position].songExplanation)
             context.startActivity(i)
         }
     }
