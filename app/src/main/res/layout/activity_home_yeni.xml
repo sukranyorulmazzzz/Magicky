@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0F171E"
+        tools:context=".MainActivity">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Magicky."
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/magicky"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:layout_marginLeft="140dp"/>
+        <com.denzcoskun.imageslider.ImageSlider
+            android:layout_width="match_parent"
+            android:layout_height="310dp"
+            android:id="@+id/image_slider"
+            app:iss_auto_cycle="true"
+            app:iss_period="2500"
+            app:iss_delay="0"
+            android:layout_marginTop="10dp"/>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:text="Top Hits"
+    android:fontFamily="@font/magicky"
+    android:textStyle="bold"
+    android:textSize="23dp"
+    android:textColor="@color/white"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerAnimals"
+            tools:listitem="@layout/item_list"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"/>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:textStyle="bold"
+    android:layout_marginLeft="20dp"
+    android:textSize="23dp"
+    android:fontFamily="@font/magicky"
+    android:text="Best Singers"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerAnimals2"
+            tools:listitem="@layout/item_list"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23dp"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/magicky"
+            android:textColor="@color/white"
+            android:text="You can like it"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerAnimals3"
+            tools:listitem="@layout/item_list"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"/>
+ <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Chill"
+     android:layout_marginLeft="20dp"
+     android:textSize="23dp"
+     android:textStyle="bold"
+     android:fontFamily="@font/magicky"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerAnimals4"
+            tools:listitem="@layout/item_list"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"/>
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

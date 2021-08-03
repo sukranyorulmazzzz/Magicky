@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:orientation="vertical"
+    android:background="#0F171E"
+
+
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/relativelayout"
+        android:background="#0F171E"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+
+        android:orientation="horizontal">
+
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+
+            android:id="@+id/playbuttonwhite"
+            android:background="@drawable/playwhite"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/idTV"
+            android:layout_marginTop="10dp"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:visibility="gone"
+            android:layout_marginLeft="0dp"
+            android:layout_height="30dp"/>
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/hhhh"
+            android:layout_marginLeft="360dp"
+            android:id="@+id/likebutton"/>
+
+
+        <TextView
+            android:id="@+id/song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="80dp"
+            android:fontFamily="@font/magicky"
+            android:text="Beyonce..Run the world"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/song_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="300dp"
+            android:fontFamily="@font/magicky"
+            android:text="3.22"
+            android:textSize="20dp" />
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

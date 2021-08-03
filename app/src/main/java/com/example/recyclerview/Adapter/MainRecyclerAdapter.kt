@@ -45,7 +45,7 @@ class MainRecyclerAdapter(
 
         init {
             categoryTitle = itemView.findViewById(R.id.cat_title)
-            itemRecycler = itemView.findViewById(R.id.item_recycler)
+            itemRecycler = itemView.findViewById(R.id.recyclerAnimals)
         }
     }
 
