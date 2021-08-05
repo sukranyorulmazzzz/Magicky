@@ -46,8 +46,8 @@
                         android:id="@+id/animalName"
                         android:layout_width="110dp"
                         android:layout_height="50dp"
-                       android:layout_gravity="left"
-                       android:text="@{isAnimals.name}"
+                        android:layout_gravity="left"
+                        android:text="@{isAnimals.name}"
                         android:textColor="@color/white"
                         android:textSize="15dp"
                         android:fontFamily="@font/magicky"
@@ -69,8 +69,8 @@
 
 
                 </LinearLayout>
-                </LinearLayout>
-                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
 
 
     </androidx.cardview.widget.CardView>
