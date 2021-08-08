@@ -1,13 +1,15 @@
 package com.example.recyclerview.UI
 
+import android.app.ActionBar
 import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import com.example.recyclerview.R
 import com.example.recyclerview.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -16,7 +18,7 @@ import java.util.regex.Pattern
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var actionBar: ActionBar
+   // private lateinit var actionBar: ActionBar
     private lateinit var progressDialog: ProgressDialog
     private lateinit var firebaseAuth: FirebaseAuth
     private var email=""
@@ -85,7 +87,7 @@ class LoginActivity : AppCompatActivity() {
     private fun checkUser() {
         val firebaseUser=firebaseAuth.currentUser
         if (firebaseUser!=null){
-            startActivity(Intent(this,ProfileActivity::class.java))
+            startActivity(Intent(this,HomeYeni::class.java))
         }
     }
 }

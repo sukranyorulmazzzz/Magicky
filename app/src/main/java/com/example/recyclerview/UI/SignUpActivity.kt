@@ -8,7 +8,7 @@ import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
-import com.example.recyclerview.DataBinderMapperImpl
+
 import com.example.recyclerview.R
 import com.example.recyclerview.databinding.ActivityLoginBinding
 import com.example.recyclerview.databinding.ActivitySignUpBinding

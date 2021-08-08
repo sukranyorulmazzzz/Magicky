@@ -20,7 +20,11 @@ import kotlinx.android.synthetic.main.activity_home_yeni.*
 
 class HomeYeni : AppCompatActivity() {
     lateinit var mDataBase: DatabaseReference
-    private lateinit var recyclerView: RecyclerView
+    var recyclerView: RecyclerView? = null
+    private lateinit var songData: java.util.ArrayList<SongData>
+    var animalsAdapter: AnimalsAdapter? = null
+    var databaseReference: DatabaseReference? = null
+
     private lateinit var recyclerView2: RecyclerView
     private lateinit var recyclerView3: RecyclerView
     private lateinit var recyclerView4: RecyclerView
@@ -71,38 +75,23 @@ class HomeYeni : AppCompatActivity() {
         val imageSlider=findViewById<ImageSlider>(R.id.image_slider)
         imageSlider.setImageList(imageList)
 
-
-        recyclerView=findViewById(R.id.recyclerAnimals)
-        recyclerView2=findViewById(R.id.recyclerAnimals2)
-        recyclerView3=findViewById(R.id.recyclerAnimals3)
-        recyclerView4=findViewById(R.id.recyclerAnimals4)
-
         /**initialized*/
-        animaList = ArrayList()
-        animaList2 = ArrayList()
-        animaList3 = ArrayList()
-        animaList4 = ArrayList()
+     //   animaList2 = ArrayList()
+      //  animaList3 = ArrayList()
+      //  animaList4 = ArrayList()
 
-        mAdapter = AnimalsAdapter(this,animaList)
-        mAdapter2= AnimalsAdapter(this,animaList2)
-        mAdapter3= AnimalsAdapter(this,animaList3)
-        mAdapter4= AnimalsAdapter(this,animaList4)
+       // mAdapter = AnimalsAdapter(this,animaList)
+      //  mAdapter2= AnimalsAdapter(this,animaList2)
+      //  mAdapter3= AnimalsAdapter(this,animaList3)
+      //  mAdapter4= AnimalsAdapter(this,animaList4)
 
-        recyclerView.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-        recyclerView.adapter=mAdapter
-        recyclerView2.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-        recyclerView2.adapter=mAdapter2
-
-        recyclerView3.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-        recyclerView3.adapter=mAdapter3
-
-        recyclerView4.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-        recyclerView4.adapter=mAdapter4
+      //  recyclerView.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+      //  recyclerView.adapter=mAdapter
 
         getSongs()
-        getSongs2()
-        getSongs3()
-        getSongs4()
+      //  getSongs2()
+       // getSongs3()
+       // getSongs4()
 
 
     }
@@ -111,30 +100,33 @@ class HomeYeni : AppCompatActivity() {
 
     private fun getSongs() {
 
-        mDataBase = FirebaseDatabase.getInstance().getReference("dununvebugununhitleri")
-        mDataBase.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (animalSnapshot in snapshot.children) {
-                        val animal = animalSnapshot.getValue(SongData::class.java)
-                        animaList.add(animal!!)
+        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView!!.setLayoutManager(LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false))
+        songData = java.util.ArrayList()
+        databaseReference = FirebaseDatabase.getInstance().getReference("dununvebugununhitleri")
+        databaseReference!!.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (ds in dataSnapshot.children) {
+                    val fetchDatalist = ds.getValue(SongData::class.java)
+                    if (fetchDatalist != null) {
+                        songData!!.add(fetchDatalist)
                     }
-                    recyclerAnimals.adapter = mAdapter
                 }
+                animalsAdapter = AnimalsAdapter(songData!!)
+                recyclerView!!.setAdapter(animalsAdapter)
             }
 
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(
-                    this@HomeYeni,
-                    error.message, Toast.LENGTH_SHORT
-                ).show()
-            }
-
-
-
-
+            override fun onCancelled(databaseError: DatabaseError) {}
         })
-    } private fun getSongs4() {
+    }
+            }
+
+
+
+
+
+
+   /* private fun getSongs4() {
 
         mDataBase = FirebaseDatabase.getInstance().getReference("chill")
         mDataBase.addValueEventListener(object : ValueEventListener {
@@ -208,8 +200,6 @@ class HomeYeni : AppCompatActivity() {
             }
 
         })}
-
-
-}
+*/
 
 

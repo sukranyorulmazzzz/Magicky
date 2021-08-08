@@ -1,9 +1,10 @@
 package com.example.recyclerview.UI
 
+import android.app.ActionBar
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import com.example.recyclerview.R
 import com.example.recyclerview.databinding.ActivityProfileBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -11,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityProfileBinding
-    private lateinit var actionBar: ActionBar
+//    private lateinit var actionBar: ActionBar
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -7,31 +7,51 @@ import com.example.recyclerview.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerview.Adapter.HelperAdapter2
+import com.example.recyclerview.SongData
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_new.*
+import kotlinx.android.synthetic.main.activity_new.view.*
+import java.util.ArrayList
 
 class NewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        var backtBtn: Button? = null
+        var helperAdapter2: HelperAdapter2? = null
+        var recyclerViewsSecond: RecyclerView? = null
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new)
 
-        backtBtn=findViewById(R.id.buttonback)
+        recyclerViewsSecond = findViewById(R.id.recyclerViewSecond)
+        val intent = this.intent
+        val bundle = intent.extras
+        val name:TextView
+        val info:TextView
+        val img:ImageView
+        val fetchData = bundle!!.getSerializable("key") as SongData?
+        recyclerViewsSecond!!.setLayoutManager(LinearLayoutManager(this))
+        val arrayList = ArrayList<String?>()
 
-        buttonback.setOnClickListener{
-            val intent =Intent(this,HomeYeni::class.java)
+        name=findViewById(R.id.name)
+        info=findViewById(R.id.info)
 
-            startActivity(intent)
-        }
-        /**get Data*/
-        val animalIntent = intent
-        val animalName = animalIntent.getStringExtra("name")
-        val animalInfo = animalIntent.getStringExtra("info")
-        val animalImg = animalIntent.getStringExtra("img")
+        img=findViewById(R.id.img)
+        arrayList.add(fetchData!!.songName)
+        arrayList.add(fetchData!!.songName2)
+        name.text=fetchData.name
+        info.text=fetchData.info
 
-        /**call text and images*/
-        name.text = animalName
-        info.text = animalInfo
-        img.loadImage(animalImg, getProgessDrawable(this))
+
+        Picasso.get().load(fetchData.img).into(img)
+
+        helperAdapter2 = HelperAdapter2(arrayList)
+        recyclerViewsSecond!!.setAdapter(helperAdapter2)
+
+
     }
-    /**ok now run it */
 }
+
