@@ -42,6 +42,14 @@ class NewActivity : AppCompatActivity() {
         img=findViewById(R.id.img)
         arrayList.add(fetchData!!.songName)
         arrayList.add(fetchData!!.songName2)
+        arrayList.add(fetchData!!.songName3)
+        arrayList.add(fetchData!!.songName4)
+        arrayList.add(fetchData!!.songName5)
+        arrayList.add(fetchData!!.songName6)
+        arrayList.add(fetchData!!.songName7)
+        arrayList.add(fetchData!!.songName8)
+        arrayList.add(fetchData!!.songName9)
+        arrayList.add(fetchData!!.songName91)
         name.text=fetchData.name
         info.text=fetchData.info
 

@@ -19,25 +19,25 @@ import kotlinx.android.synthetic.main.activity_home_yeni.*
 
 
 class HomeYeni : AppCompatActivity() {
-    lateinit var mDataBase: DatabaseReference
+
     var recyclerView: RecyclerView? = null
+    var recyclerView2: RecyclerView? = null
+    var recyclerView3: RecyclerView? = null
+    var recyclerView4: RecyclerView? = null
     private lateinit var songData: java.util.ArrayList<SongData>
+    private lateinit var songData2: java.util.ArrayList<SongData>
+    private lateinit var songData3: java.util.ArrayList<SongData>
+    private lateinit var songData4: java.util.ArrayList<SongData>
     var animalsAdapter: AnimalsAdapter? = null
+    var animalsAdapter2: AnimalsAdapter? = null
+    var animalsAdapter3: AnimalsAdapter? = null
+    var animalsAdapter4: AnimalsAdapter? = null
     var databaseReference: DatabaseReference? = null
+    var databaseReference2: DatabaseReference? = null
+    var databaseReference3: DatabaseReference? = null
+    var databaseReference4: DatabaseReference? = null
 
-    private lateinit var recyclerView2: RecyclerView
-    private lateinit var recyclerView3: RecyclerView
-    private lateinit var recyclerView4: RecyclerView
-    private lateinit var animaList:ArrayList<SongData>
-    private lateinit var animaList2:ArrayList<SongData>
-    private lateinit var animaList3:ArrayList<SongData>
-    private lateinit var animaList4:ArrayList<SongData>
-    private lateinit var mAdapter:AnimalsAdapter
-    private lateinit var mAdapter2:AnimalsAdapter
-    private lateinit var mAdapter3:AnimalsAdapter
-    private lateinit var mAdapter4:AnimalsAdapter
 
-    private lateinit var firebaseAuth: FirebaseAuth
     val imageList= java.util.ArrayList<SlideModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,30 +75,18 @@ class HomeYeni : AppCompatActivity() {
         val imageSlider=findViewById<ImageSlider>(R.id.image_slider)
         imageSlider.setImageList(imageList)
 
-        /**initialized*/
-     //   animaList2 = ArrayList()
-      //  animaList3 = ArrayList()
-      //  animaList4 = ArrayList()
 
-       // mAdapter = AnimalsAdapter(this,animaList)
-      //  mAdapter2= AnimalsAdapter(this,animaList2)
-      //  mAdapter3= AnimalsAdapter(this,animaList3)
-      //  mAdapter4= AnimalsAdapter(this,animaList4)
-
-      //  recyclerView.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-      //  recyclerView.adapter=mAdapter
-
-        getSongs()
-      //  getSongs2()
-       // getSongs3()
-       // getSongs4()
+        getSongs1()
+        getSongs2()
+        getSongs3()
+        getSongs4()
 
 
     }
     /**ok now create new activity*/
 
 
-    private fun getSongs() {
+    private fun getSongs1() {
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView!!.setLayoutManager(LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false))
@@ -118,88 +106,71 @@ class HomeYeni : AppCompatActivity() {
 
             override fun onCancelled(databaseError: DatabaseError) {}
         })
-    }
-            }
+    }  private fun getSongs2() {
 
-
-
-
-
-
-   /* private fun getSongs4() {
-
-        mDataBase = FirebaseDatabase.getInstance().getReference("chill")
-        mDataBase.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (animalSnapshot in snapshot.children) {
-                        val animal = animalSnapshot.getValue(SongData::class.java)
-                        animaList4.add(animal!!)
+        recyclerView2 = findViewById(R.id.recyclerAnimals2)
+        recyclerView2!!.setLayoutManager(LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false))
+        songData2 = java.util.ArrayList()
+        databaseReference2 = FirebaseDatabase.getInstance().getReference("singers")
+        databaseReference2!!.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (ds in dataSnapshot.children) {
+                    val fetchDatalist = ds.getValue(SongData::class.java)
+                    if (fetchDatalist != null) {
+                        songData2!!.add(fetchDatalist)
                     }
-                    recyclerAnimals4.adapter = mAdapter4
                 }
+                animalsAdapter2 = AnimalsAdapter(songData2!!)
+                recyclerView2!!.setAdapter(animalsAdapter2)
             }
 
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(
-                    this@HomeYeni,
-                    error.message, Toast.LENGTH_SHORT
-                ).show()
+            override fun onCancelled(databaseError: DatabaseError) {}
+        })
+    } private fun getSongs3() {
+
+        recyclerView3 = findViewById(R.id.recyclerAnimals3)
+        recyclerView3!!.setLayoutManager(LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false))
+        songData3 = java.util.ArrayList()
+        databaseReference3 = FirebaseDatabase.getInstance().getReference("youlikeit")
+        databaseReference3!!.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (ds in dataSnapshot.children) {
+                    val fetchDatalist = ds.getValue(SongData::class.java)
+                    if (fetchDatalist != null) {
+                        songData3!!.add(fetchDatalist)
+                    }
+                }
+                animalsAdapter3 = AnimalsAdapter(songData3!!)
+                recyclerView3!!.setAdapter(animalsAdapter3)
             }
 
+            override fun onCancelled(databaseError: DatabaseError) {}
+        })
+    }private fun getSongs4() {
 
+        recyclerView4 = findViewById(R.id.recyclerAnimals4)
+        recyclerView4!!.setLayoutManager(LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false))
+        songData4 = java.util.ArrayList()
+        databaseReference4 = FirebaseDatabase.getInstance().getReference("chill")
+        databaseReference4!!.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (ds in dataSnapshot.children) {
+                    val fetchDatalist = ds.getValue(SongData::class.java)
+                    if (fetchDatalist != null) {
+                        songData4!!.add(fetchDatalist)
+                    }
+                }
+                animalsAdapter4 = AnimalsAdapter(songData4!!)
+                recyclerView4!!.setAdapter(animalsAdapter4)
+            }
 
-
+            override fun onCancelled(databaseError: DatabaseError) {}
         })
     }
-    private fun getSongs3() {
-
-        mDataBase = FirebaseDatabase.getInstance().getReference("youlikeit")
-        mDataBase.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (animalSnapshot in snapshot.children) {
-                        val animal = animalSnapshot.getValue(SongData::class.java)
-                        animaList3.add(animal!!)
-                    }
-                    recyclerAnimals3.adapter = mAdapter3
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(
-                    this@HomeYeni,
-                    error.message, Toast.LENGTH_SHORT
-                ).show()
             }
 
 
 
 
-        })
-    }
-    private fun getSongs2() {
-
-        mDataBase = FirebaseDatabase.getInstance().getReference("singers")
-        mDataBase.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (dataSnapshot in snapshot.children) {
-                        val animal = dataSnapshot.getValue(SongData::class.java)
-                        animaList2.add(animal!!)
-                    }
-                    recyclerAnimals2.adapter = mAdapter2
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(
-                    this@HomeYeni,
-                    error.message, Toast.LENGTH_SHORT
-                ).show()
-            }
-
-        })}
-*/
 
 
