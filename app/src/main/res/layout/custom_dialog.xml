@@ -4,21 +4,21 @@
     android:background="@color/white"
     android:layout_height="match_parent">
 
-  <ImageView
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-      android:layout_marginLeft="140dp"
-      android:background="@drawable/deleteeee"/>
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Do you want to delete data?"
-      android:fontFamily="@font/dort"
-      android:textSize="30dp"
-      android:textColor="@color/black"
-      android:layout_marginTop="100dp"
-      android:layout_marginLeft="60dp"
-      />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="140dp"
+        android:background="@drawable/deleteeee"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do you want to delete data?"
+        android:fontFamily="@font/dort"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="60dp"
+        />
 
 
 </RelativeLayout>

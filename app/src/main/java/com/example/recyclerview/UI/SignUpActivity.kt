@@ -26,10 +26,10 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-       binding= ActivitySignUpBinding.inflate(layoutInflater)
+        binding= ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       // actionBar=supportActionBar!!
+        // actionBar=supportActionBar!!
         //actionBar.title="Sign Up"
         //actionBar.setDisplayHomeAsUpEnabled(true)
         //actionBar.setDisplayShowHomeEnabled(true)
@@ -77,7 +77,7 @@ class SignUpActivity : AppCompatActivity() {
                 val firebaseUser=firebaseAuth.currentUser
                 val email=firebaseUser!!.email
                 Toast.makeText(this,"signup successful",Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this,ProfileActivity::class.java))
+                startActivity(Intent(this,HomeYeni::class.java))
                 finish()
 
             }

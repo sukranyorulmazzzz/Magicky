@@ -1,3 +1,4 @@
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -96,6 +97,7 @@ dependencies {
 
     implementation 'com.github.jeancsanchez:JcPlayer:2.6.16'
 
+    implementation 'com.firebaseui:firebase-ui-database:2.3.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
 

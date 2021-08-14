@@ -2,19 +2,15 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="#f000ff">
+    android:background="#fff">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:background="@color/black"></LinearLayout>
+        android:layout_height="50dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/black"
+        android:orientation="horizontal"></LinearLayout>
 
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/playwhite" />
 
     <TextView
         android:id="@+id/maintextView"
@@ -24,6 +20,8 @@
         android:layout_marginTop="25dp"
         android:fontFamily="@font/magicky"
         android:text="123456"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:textColor="@color/white"
         android:textSize="15dp" />
 

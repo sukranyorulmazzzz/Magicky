@@ -1,6 +1,7 @@
 package com.example.recyclerview.UI
 
 import android.content.Intent
+import android.media.MediaPlayer
 import com.example.recyclerview.R
 
 
@@ -9,16 +10,21 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.recyclerview.Adapter.HelperAdapter2
+import com.example.recyclerview.UI.HelperAdapter2
 import com.example.recyclerview.SongData
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_new.*
 import kotlinx.android.synthetic.main.activity_new.view.*
+import java.io.IOException
 import java.util.ArrayList
 
 class NewActivity : AppCompatActivity() {
+
+
+    lateinit var songs:Array<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         var helperAdapter2: HelperAdapter2? = null
         var recyclerViewsSecond: RecyclerView? = null
@@ -56,10 +62,28 @@ class NewActivity : AppCompatActivity() {
 
         Picasso.get().load(fetchData.img).into(img)
 
+
+
         helperAdapter2 = HelperAdapter2(arrayList)
         recyclerViewsSecond!!.setAdapter(helperAdapter2)
+
+        helperAdapter2.setOnItemClickListener(object :HelperAdapter2.onItemClickListener{
+            override fun onItemClick(position: Int) {
+
+            val intent=Intent(this@NewActivity,SongActivity::class.java)
+                val bundle = Bundle()
+                bundle.putSerializable("key", arrayList)
+                intent.putExtras(bundle)
+                intent.putExtra("position",position)
+
+                startActivity(intent)
+
+            }
+
+        })
+
+
 
 
     }
 }
-

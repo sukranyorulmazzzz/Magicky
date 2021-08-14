@@ -6,21 +6,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".UI.ProfileActivity">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    style="@style/TextAppearance.MaterialComponents.Caption"
-    android:text="Youre loggin in as"/>
-    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.MaterialComponents.Caption"
+        android:text="Youre loggin in as"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/emailTv"
         android:text="Email"
         style="@style/TextAppearance.AppCompat.Body1"/>
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="logout"
-    android:id="@+id/logutBtn"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="logout"
+        android:id="@+id/logutBtn"/>
 </LinearLayout>

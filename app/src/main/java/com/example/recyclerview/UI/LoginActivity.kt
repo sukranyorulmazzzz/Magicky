@@ -18,7 +18,7 @@ import java.util.regex.Pattern
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-   // private lateinit var actionBar: ActionBar
+    // private lateinit var actionBar: ActionBar
     private lateinit var progressDialog: ProgressDialog
     private lateinit var firebaseAuth: FirebaseAuth
     private var email=""
@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
         binding= ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       // actionBar=supportActionBar!!
+        // actionBar=supportActionBar!!
         //actionBar.title="Login"
         progressDialog= ProgressDialog(this)
         progressDialog.setTitle("Please wait")
@@ -69,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.show()
         firebaseAuth.signInWithEmailAndPassword(email,password)
             .addOnSuccessListener {
-            //basarılı giris
+                //basarılı giris
                 progressDialog.dismiss()
                 val firebaseUser=firebaseAuth.currentUser
                 val email=firebaseUser!!.email
@@ -78,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
                 finish()
             }
             .addOnFailureListener{
-           //basarısız giris
+                //basarısız giris
                 progressDialog.dismiss()
                 Toast.makeText(this,"Login failed ",Toast.LENGTH_SHORT).show()
             }

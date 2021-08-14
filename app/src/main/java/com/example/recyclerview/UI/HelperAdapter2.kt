@@ -1,5 +1,4 @@
-package com.example.recyclerview.Adapter
-
+package com.example.recyclerview.UI
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +8,15 @@ import com.example.recyclerview.R
 import java.util.ArrayList
 
 class HelperAdapter2(var fetchData: ArrayList<String?>) : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
+
+private lateinit var mListener:onItemClickListener
+interface onItemClickListener{
+    fun onItemClick(position: Int)
+}
+    fun setOnItemClickListener(listener:onItemClickListener){
+        mListener=listener
+    }
+
     var subitemListFinal = ArrayList<String>()
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -16,7 +24,7 @@ class HelperAdapter2(var fetchData: ArrayList<String?>) : RecyclerView.Adapter<R
     ): RecyclerView.ViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
-        return ViewHolderClass(view)
+        return ViewHolderClass(view,mListener)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -29,13 +37,18 @@ class HelperAdapter2(var fetchData: ArrayList<String?>) : RecyclerView.Adapter<R
         return fetchData.size
     }
 
-    inner class ViewHolderClass(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+    inner class ViewHolderClass(itemView: View,listener:onItemClickListener) : RecyclerView.ViewHolder(itemView) {
         var textView: TextView
 
         init {
             textView = itemView.findViewById(R.id.maintextView)
+            itemView.setOnClickListener{
+                listener.onItemClick(adapterPosition)
+            }
+            }
+            }
         }
-    }
 
 
-}
+

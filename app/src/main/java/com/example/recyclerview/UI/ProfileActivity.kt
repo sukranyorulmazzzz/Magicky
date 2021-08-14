@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityProfileBinding
-//    private lateinit var actionBar: ActionBar
+    //    private lateinit var actionBar: ActionBar
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +20,7 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-       // actionBar=supportActionBar!!
+        // actionBar=supportActionBar!!
         //actionBar.title="Profile"
 
         firebaseAuth= FirebaseAuth.getInstance()
