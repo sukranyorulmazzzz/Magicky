@@ -2,39 +2,45 @@ package com.example.recyclerview.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.recyclerview.R;
 
 public class SplashActivity extends AppCompatActivity {
-
+    ImageView imageView;
     private static int SPLASH_SCREEN=5000;
-    Animation topAnim;
-    ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
 
-        topAnim= AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        imageView=findViewById(R.id.iv_ball);
 
-        image=findViewById(R.id.imagem);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        ObjectAnimator objectAnimator=ObjectAnimator.ofPropertyValuesHolder(
+                imageView,
+                PropertyValuesHolder.ofFloat("scaleX",1.2f),
+                PropertyValuesHolder.ofFloat("scaleY",1.2f)
+        );
+        objectAnimator.setDuration(500);
+        objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        objectAnimator.setRepeatMode(ValueAnimator.REVERSE);
+        objectAnimator.start();
 
-        image.setAnimation(topAnim);
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(SplashActivity.this,LoginActivity.class);
+                Intent intent=new Intent(SplashActivity.this, Login.class);
                 startActivity(intent);
                 finish();
             }
@@ -42,3 +48,8 @@ public class SplashActivity extends AppCompatActivity {
 
     }
 }
+
+
+
+
+

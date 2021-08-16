@@ -1,24 +1,29 @@
 package com.example.recyclerview.UI
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
+import android.view.Menu
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.recyclerview.SongData
 import com.example.recyclerview.R
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_home_yeni.*
 
 
-class HomeYeni : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
   var recyclerView: RecyclerView? = null
   var recyclerView2: RecyclerView? = null
@@ -43,28 +48,34 @@ class HomeYeni : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_home_yeni)
 
-
-    imageview_options.setOnClickListener{
-      val popupMenu=PopupMenu(this,it)
-      popupMenu.setOnMenuItemClickListener { item->
-        when(item.itemId){
-          R.id.menu_open_profile->{
-            startActivity(Intent(this,ProfileActivity::class.java))
-            true
-          }
-          R.id.logout->{
-            startActivity(Intent(this,LoginActivity::class.java))
-            true
-
-
-          }
-          else ->
-            false
+  imageview_options.setOnClickListener{
+    val popupMenu=PopupMenu(this,it)
+    popupMenu.setOnMenuItemClickListener {item->
+      when(item.itemId){
+        R.id.menu_home ->{
+          val intent=Intent(this,MainActivity::class.java)
+          startActivity(intent)
+          true
+        }  R.id.menu_profile ->{
+          val intent=Intent(this,ProfileActivity::class.java)
+          startActivity(intent)
+          true
         }
+        R.id.menu_settings ->{
+          FirebaseAuth.getInstance().signOut() //logout
+          startActivity(Intent(applicationContext, Login::class.java))
+          finish()
+          true
+        }
+
+        else -> false
       }
-      popupMenu.inflate(R.menu.menu)
-      popupMenu.show()
     }
+    popupMenu.inflate(R.menu.iconmenu)
+    popupMenu.show()
+  }
+
+
     imageList.add(SlideModel("https://i1.wp.com/dadanizm.wpcomstaging.com/wp-content/uploads/2020/07/beyonce_black-is-king.jpg?fit=1024%2C512&ssl=1","Beyoncé’den Afrika kültürüne selam çakan coşkulu bir görsel albüm: Black is King"))
     imageList.add(SlideModel("https://i2.wp.com/dadanizm.wpcomstaging.com/wp-content/uploads/2021/07/halsey.png?fit=1024%2C541&ssl=1","If I Can’t Have Love, I Want Power: Yeni albüm öncesi Halsey’e dadanıyoruz"))
     imageList.add(SlideModel("https://i2.wp.com/dadanizm.wpcomstaging.com/wp-content/uploads/2021/06/amy-winehouse-bbc-belgesel.jpeg?fit=1024%2C803&ssl=1","Bir hayattan kaç hikaye çıkar: Amy Winehouse ölümünün 10. yılında yeni bir kitap ve belgeselle anılıyor"))

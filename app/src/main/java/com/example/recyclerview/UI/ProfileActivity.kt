@@ -1,47 +1,145 @@
 package com.example.recyclerview.UI
 
-import android.app.ActionBar
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
 import com.example.recyclerview.R
-import com.example.recyclerview.databinding.ActivityProfileBinding
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Picasso
+import de.hdodenhof.circleimageview.CircleImageView
+
 
 class ProfileActivity : AppCompatActivity() {
-
-    private lateinit var binding:ActivityProfileBinding
-    //    private lateinit var actionBar: ActionBar
-    private lateinit var firebaseAuth: FirebaseAuth
-
+    var fullName: TextView? = null
+    var email: TextView? = null
+    var phone: TextView? = null
+    var verifyMsg: TextView? = null
+    var fAuth: FirebaseAuth? = null
+    var fStore: FirebaseFirestore? = null
+    var userId: String? = null
+    var resendCode: Button? = null
+    var resetPassLocal: Button? = null
+    var changeProfileImage: Button? = null
+    var user: FirebaseUser? = null
+    var profileImage: ImageView? = null
+    var storageReference: StorageReference? = null
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding= ActivityProfileBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-
-        // actionBar=supportActionBar!!
-        //actionBar.title="Profile"
-
-        firebaseAuth= FirebaseAuth.getInstance()
-        checkUser()
-
-        binding.logutBtn.setOnClickListener {
-            firebaseAuth.signOut()
-            checkUser()
+        setContentView(R.layout.activity_profile)
+        phone = findViewById(R.id.profilePhone)
+        fullName = findViewById(R.id.profileName)
+        email = findViewById(R.id.profileEmail)
+        resetPassLocal = findViewById(R.id.resetPasswordLocal)
+        profileImage = findViewById(R.id.profileImage)
+        changeProfileImage = findViewById(R.id.changeProfile)
+        fAuth = FirebaseAuth.getInstance()
+        fStore = FirebaseFirestore.getInstance()
+        storageReference = FirebaseStorage.getInstance().reference
+        val profileRef = storageReference!!.child(
+            "users/" + fAuth!!.currentUser!!
+                .uid + "/profile.jpg"
+        )
+        profileRef.downloadUrl.addOnSuccessListener { uri ->
+            Picasso.get().load(uri).into(profileImage)
         }
+        resendCode = findViewById(R.id.resendCode)
+        verifyMsg = findViewById(R.id.verifyMsg)
+        userId = fAuth!!.currentUser!!.uid
+        user = fAuth!!.currentUser
+        if (!user!!.isEmailVerified) {
+            verifyMsg!!.setVisibility(View.VISIBLE)
+            resendCode!!.setVisibility(View.VISIBLE)
+            resendCode!!.setOnClickListener(View.OnClickListener { v ->
+                user!!.sendEmailVerification().addOnSuccessListener {
+                    Toast.makeText(
+                        v.context,
+                        "Verification Email Has been Sent.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }.addOnFailureListener { e ->
+                    Log.d(
+                        "tag",
+                        "onFailure: Email not sent " + e.message
+                    )
+                }
+            })
+        }
+        val documentReference = fStore!!.collection("users").document(
+            userId!!
+        )
+        documentReference.addSnapshotListener(
+            this
+        ) { documentSnapshot, e ->
+            if (documentSnapshot!!.exists()) {
+                phone!!.setText(documentSnapshot.getString("phone"))
+                fullName!!.setText(documentSnapshot.getString("fName"))
+                email!!.setText(documentSnapshot.getString("email"))
+            } else {
+                Log.d("tag", "onEvent: Document do not exists")
+            }
+        }
+        resetPassLocal!!.setOnClickListener(View.OnClickListener { v ->
+            val resetPassword = EditText(v.context)
+            val passwordResetDialog = AlertDialog.Builder(v.context)
+            passwordResetDialog.setTitle("Reset Password ?")
+            passwordResetDialog.setMessage("Enter New Password > 6 Characters long.")
+            passwordResetDialog.setView(resetPassword)
+            passwordResetDialog.setPositiveButton(
+                "Yes"
+            ) { dialog, which -> // extract the email and send reset link
+                val newPassword = resetPassword.text.toString()
+                user!!.updatePassword(newPassword).addOnSuccessListener {
+                    Toast.makeText(
+                        this@ProfileActivity,
+                        "Password Reset Successfully.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }.addOnFailureListener {
+                    Toast.makeText(
+                        this@ProfileActivity,
+                        "Password Reset Failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+            passwordResetDialog.setNegativeButton(
+                "No"
+            ) { dialog, which ->
+                // close
+            }
+            passwordResetDialog.create().show()
+        })
+        changeProfileImage!!.setOnClickListener(View.OnClickListener { v ->
+            // open gallery
+            val i = Intent(v.context, EditProfile::class.java)
+            i.putExtra("fullName", fullName!!.getText().toString())
+            i.putExtra("email", email!!.getText().toString())
+            i.putExtra("phone", phone!!.getText().toString())
+            startActivity(i)
+            //
+        })
     }
 
-    private fun checkUser() {
-        val firebaseUser=firebaseAuth.currentUser
-        if (firebaseUser!=null){
+    fun logout(view: View?) {
+        FirebaseAuth.getInstance().signOut() //logout
+        startActivity(Intent(applicationContext, Login::class.java))
+        finish()
+    }
 
-            val email=firebaseUser.email
-            binding.emailTv.text=email
-        }
-        else{
-            startActivity(Intent(this,LoginActivity::class.java))
-            finish()
-        }
+    companion object {
+        private const val GALLERY_INTENT_CODE = 1023
     }
 }
