@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.recyclerview.SongData
 
 import com.example.recyclerview.R
 import com.squareup.picasso.Picasso
+import java.util.ArrayList
 
-class AnimalsAdapter(var songData: List<SongData>) : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
+open class AnimalsAdapter<T, U>(var songData: ArrayList<SongData>) : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
   var context: Context? = null
   override fun onCreateViewHolder(
     parent: ViewGroup,
@@ -26,7 +26,7 @@ class AnimalsAdapter(var songData: List<SongData>) : RecyclerView.Adapter<Recycl
   }
 
   override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-    val viewHolderClass = holder as ViewHolderClass
+    val viewHolderClass = holder as AnimalsAdapter<*, *>.ViewHolderClass
     val fetchDatalist = songData[position]
     viewHolderClass.textView.text = fetchDatalist.name
     viewHolderClass.textView2.text = fetchDatalist.info

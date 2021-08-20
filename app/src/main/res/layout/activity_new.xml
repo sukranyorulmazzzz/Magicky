@@ -16,9 +16,7 @@
       android:orientation="vertical"
       android:background="#0F171E"
       tools:context=".view.NewActivity">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
       <RelativeLayout
           android:orientation="vertical"
           android:gravity="center"
@@ -91,8 +89,6 @@
 
       </RelativeLayout>
 
-
-    </ScrollView>
   </RelativeLayout>
 
 </layout>

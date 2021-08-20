@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecyclerView">
         <activity
+            android:name=".UI.FavouriteActivity"
+            android:exported="true" />
+        <activity
+            android:name=".UI.SearchActivity"
+            android:exported="true" />
+        <activity
             android:name=".UI.SongActivity"
             android:exported="true" />
         <activity android:name=".UI.Login" />

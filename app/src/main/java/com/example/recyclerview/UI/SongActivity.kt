@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.example.recyclerview.R
 import com.example.recyclerview.SongData
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.item.*
 import java.util.ArrayList
 
 class SongActivity : AppCompatActivity() {
@@ -24,6 +25,7 @@ class SongActivity : AppCompatActivity() {
     lateinit var repeatBtn:ImageView
     lateinit var playPauseBtn:FloatingActionButton
     lateinit var seekBar: SeekBar
+    lateinit var newActivity: NewActivity
     var listSongs = ArrayList<SongData?>()
 
     var position:Int=-1
@@ -46,13 +48,15 @@ class SongActivity : AppCompatActivity() {
 
 
 
-
         playPauseBtn.setOnClickListener{
             playPauseBtn.setImageResource(R.drawable.ic_baseline_pause_24)
             playPauseBtn.setOnClickListener{
                 playPauseBtn.setImageResource(R.drawable.ic_baseline_play_arrow_24)
             }
         }
+        val bundle = intent.extras
+        val fetchData = bundle!!.getSerializable("key") as SongData?
+
 
 
 
