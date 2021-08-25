@@ -41,11 +41,14 @@ class SongActivity : AppCompatActivity() {
 
 
         playPauseBtn=findViewById(R.id.play_pause)
-
+        backBtn=findViewById(R.id.back_btn)
 
 
 
         playPauseBtn.setOnClickListener{
+            val intent=Intent(this,MainActivity::class.java)
+            startActivity(intent)
+
             val view:View = layoutInflater.inflate(R.layout.item_bottom_sheet,null)
             val dialog= BottomSheetDialog(this)
             dialog.setContentView(view)

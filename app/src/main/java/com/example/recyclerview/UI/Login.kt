@@ -20,6 +20,7 @@ class Login : AppCompatActivity() {
     var mEmail: EditText? = null
     var mPassword: EditText? = null
     var mLoginBtn: Button? = null
+    var checkbox: CheckBox? = null
     var mCreateBtn: TextView? = null
     var forgotTextLink: TextView? = null
     var progressBar: ProgressBar? = null
@@ -34,6 +35,7 @@ class Login : AppCompatActivity() {
         mLoginBtn = findViewById(R.id.loginBtn)
         mCreateBtn = findViewById(R.id.createText)
         forgotTextLink = findViewById(R.id.forgotPassword)
+
         mLoginBtn!!.setOnClickListener(View.OnClickListener {
             val email = mEmail!!.getText().toString().trim { it <= ' ' }
             val password = mPassword!!.getText().toString().trim { it <= ' ' }

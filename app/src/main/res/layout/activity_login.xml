@@ -11,7 +11,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@color/black" />
+        android:src="@color/black"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-16dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -82,15 +84,16 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
-        android:text="LOGIN"
-        android:textSize="20dp"
-        android:textColor="#FFF"
-        android:fontFamily="@font/magicky"
         android:background="#ff0000"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/magicky"
         android:gravity="center"
+        android:text="LOGIN"
+        android:textColor="#FFF"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
@@ -133,5 +136,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createText"
         app:layout_constraintVertical_bias="0.19999999" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

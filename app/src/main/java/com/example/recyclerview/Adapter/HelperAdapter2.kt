@@ -1,5 +1,4 @@
-package com.example.recyclerview.UI
-import android.content.Context
+package com.example.recyclerview.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +9,10 @@ import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.R
 import java.util.ArrayList
-import com.google.firebase.database.DatabaseReference
 import android.content.Intent
+import com.example.recyclerview.Song
+import com.example.recyclerview.UI.SongActivity
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_favourite.view.*
 
 
 class HelperAdapter2(var fetchData: ArrayList<Song>) : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {

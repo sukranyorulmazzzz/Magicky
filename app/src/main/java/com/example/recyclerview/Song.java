@@ -1,4 +1,4 @@
-package com.example.recyclerview.UI;
+package com.example.recyclerview;
 
 public class Song {
 

@@ -6,11 +6,12 @@ import com.example.recyclerview.R
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerview.Adapter.HelperAdapter2
+import com.example.recyclerview.Song
 import com.example.recyclerview.SongData
 import com.google.firebase.database.*
 import com.squareup.picasso.Picasso

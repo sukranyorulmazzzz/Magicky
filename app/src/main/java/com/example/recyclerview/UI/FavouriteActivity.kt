@@ -6,10 +6,11 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerview.Adapter.HelperAdapter2
 import com.example.recyclerview.R
+import com.example.recyclerview.Song
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_favourite.*
-import kotlinx.android.synthetic.main.activity_new.*
 
 class FavouriteActivity : AppCompatActivity() {
     var recyclerView: RecyclerView? = null
