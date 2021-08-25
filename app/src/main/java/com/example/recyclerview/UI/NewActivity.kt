@@ -29,18 +29,19 @@ class NewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new)
 
-        backbutton=findViewById<ImageView>(R.id.back_btn)
-        backbutton!!.setOnClickListener{
+        backbutton=findViewById(R.id.backbuttonnew)
+        backbutton!!.setOnClickListener {
             val intent=Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
+
 
         recyclerViewsSecond = findViewById(R.id.recyclerViewSecond)
         val intent = this.intent
         val bundle = intent.extras
         val name: TextView
         val info: TextView
-        val img: ImageView
+        val background: ImageView
 
 
         val fetchData = bundle!!.getSerializable("key") as SongData?
@@ -50,11 +51,12 @@ class NewActivity : AppCompatActivity() {
 
         name = findViewById(R.id.name)
         info = findViewById(R.id.info)
-        img = findViewById(R.id.img)
+        background=findViewById(R.id.background)
+
 
         name.text = fetchData!!.name
         info.text = fetchData.info
-        Picasso.get().load(fetchData.img).into(img)
+        Picasso.get().load(fetchData.background).into(background)
 
         if (fetchData.songId == 1) {
 

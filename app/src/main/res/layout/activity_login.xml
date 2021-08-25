@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/konser" />
+        android:src="@color/black" />
 
     <TextView
         android:id="@+id/textView"
@@ -44,7 +44,7 @@
         android:id="@+id/Email"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:background="@drawable/neon"
+        android:background="@drawable/cerceve"
         android:ems="10"
         android:layout_margin="20dp"
         android:hint="Email"
@@ -64,7 +64,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
 
-        android:background="@drawable/neon"
+        android:background="@drawable/cerceve"
         android:ems="10"
         android:layout_margin="20dp"
         android:hint="Password"
@@ -88,7 +88,7 @@
         android:textSize="20dp"
         android:textColor="#FFF"
         android:fontFamily="@font/magicky"
-        android:background="@drawable/neonbir"
+        android:background="#ff0000"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"

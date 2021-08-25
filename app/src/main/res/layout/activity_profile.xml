@@ -10,7 +10,6 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/gradient"
         tools:ignore="MissingConstraints" />
 
 
@@ -21,7 +20,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:onClick="logout"
-        android:background="@drawable/neonbir"
+        android:background="@drawable/cerceve"
         android:text="Logout"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -123,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/neonbir"
+        android:background="@drawable/cerceve"
         android:text="Reset Password"
         android:textColor="#fff"
         app:layout_constraintBottom_toTopOf="@+id/button"
@@ -218,7 +217,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/neonbir"
+        android:background="@drawable/cerceve"
         android:text="Change Profile"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="@+id/button"

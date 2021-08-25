@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
+    android:background="@drawable/skoo"
     tools:context=".UI.SearchActivity">
 
 
@@ -33,8 +33,8 @@
         android:layout_marginRight="20dp"
         android:layout_toStartOf="@+id/search_btn"
         android:layout_toLeftOf="@+id/search_btn"
-        android:ems="10"
         android:background="@drawable/search_layout"
+        android:ems="10"
         android:hint="Search here"
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
@@ -46,7 +46,7 @@
         android:textSize="16sp" />
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <ImageButton
         android:id="@+id/search_btn"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -55,11 +55,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="0dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
+        android:layout_marginRight="20dp"
         android:layout_marginBottom="0dp"
-        android:background="@color/black"
-        android:src="@drawable/search" />
+        android:background="@drawable/search_layout"
+        android:src="@drawable/ic_baseline_search_24" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/result_list"

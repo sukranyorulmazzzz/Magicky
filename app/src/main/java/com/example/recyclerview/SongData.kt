@@ -10,6 +10,7 @@ class SongData : Serializable {
   var name :String? = null
   var info:String? = null
   var img:String? = null
+  var background:String? = null
   var songId:Int? = null
 
 
@@ -19,11 +20,13 @@ class SongData : Serializable {
     name:String?,
     info:String?,
     img:String?,
+    background:String?,
     songId:Int?
   ){
     this.name = name
     this.info = info
     this.img = img
+    this.background = background
     this.songId=songId
   }
 

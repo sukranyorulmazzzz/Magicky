@@ -32,7 +32,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        mUserDatabase = FirebaseDatabase.getInstance().getReference("SongsSearch");
+        mUserDatabase = FirebaseDatabase.getInstance().getReference("SongSearch");
 
 
         mSearchField = (EditText) findViewById(R.id.search_field);

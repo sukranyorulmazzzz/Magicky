@@ -31,6 +31,7 @@ open class AnimalsAdapter<T, U>(var songData: ArrayList<SongData>) : RecyclerVie
     viewHolderClass.textView.text = fetchDatalist.name
     viewHolderClass.textView2.text = fetchDatalist.info
 
+
     Picasso.get().load(fetchDatalist.img).into(viewHolderClass.imageview)
     viewHolderClass.itemView.setOnClickListener { view ->
       val intent = Intent(view.context, NewActivity::class.java)

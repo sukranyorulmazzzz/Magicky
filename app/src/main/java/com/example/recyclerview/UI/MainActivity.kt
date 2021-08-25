@@ -26,12 +26,7 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
 
 
-  private var mSearchField: EditText? = null
-  private var imageButton: ImageButton? = null
-  private val mResultList: RecyclerView? = null
   var searchbutton:ImageView? = null
-  private var mUserDatabase: DatabaseReference? = null
-  private lateinit var tempArrayList:ArrayList<SongData>
 
   var recyclerView: RecyclerView? = null
   var favouriteList:ImageView?= null
@@ -61,6 +56,10 @@ class MainActivity : AppCompatActivity() {
     favouriteList=findViewById(R.id.favouriteList)
     searchbutton=findViewById(R.id.searchbutton)
 
+    favouriteList!!.setOnClickListener {
+      val intent=Intent(this,FavouriteActivity::class.java)
+      startActivity(intent)
+    }
     searchbutton!!.setOnClickListener {
       val intent=Intent(this,SearchActivity::class.java)
       startActivity(intent)

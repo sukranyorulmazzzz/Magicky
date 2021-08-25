@@ -103,7 +103,7 @@ class Register : AppCompatActivity() {
                             "onFailure: $e"
                         )
                     })
-                    startActivity(Intent(applicationContext, ProfileActivity::class.java))
+                    startActivity(Intent(applicationContext, MainActivity::class.java))
                 } else {
                     Toast.makeText(
                         this@Register,

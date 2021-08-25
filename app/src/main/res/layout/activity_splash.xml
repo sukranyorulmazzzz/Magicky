@@ -11,16 +11,18 @@
         android:id="@+id/iv_ball"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/image" />
+        android:src="@drawable/splash" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/magicky"
-        android:textColor="#FFF"
-        android:layout_marginTop="10dp"
-        android:text="Magicky"
-        android:textSize="60dp"
+        android:layout_marginTop="400dp"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+
+        android:fontFamily="@font/magicky"
+        android:text="Magicky"
+        android:textColor="#FFF"
+        android:textSize="60dp" />
 </RelativeLayout>

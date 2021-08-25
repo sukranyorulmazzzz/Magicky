@@ -12,6 +12,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.item.*
 import java.util.ArrayList
 
+
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import android.view.View;
+import android.view.ViewGroup;
+
 class SongActivity : AppCompatActivity() {
 
     lateinit var songName:TextView
@@ -23,7 +28,7 @@ class SongActivity : AppCompatActivity() {
     lateinit var backBtn:ImageView
     lateinit var shuffleBtn:ImageView
     lateinit var repeatBtn:ImageView
-    lateinit var playPauseBtn:FloatingActionButton
+    lateinit var playPauseBtn:ImageView
     lateinit var seekBar: SeekBar
     lateinit var newActivity: NewActivity
     var listSongs = ArrayList<SongData?>()
@@ -34,28 +39,20 @@ class SongActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_song)
 
-        songName=findViewById(R.id.song_name)
-        duration_played=findViewById(R.id.durationPlayed)
-        duration_total=findViewById(R.id.durationTotal)
-        cover_art=findViewById(R.id.cover_art)
-        nextBtn=findViewById(R.id.ic_next)
-        prevBtn=findViewById(R.id.ic_prev)
-        backBtn=findViewById(R.id.back_btn)
-        shuffleBtn=findViewById(R.id.ic_shuffle)
-        repeatBtn=findViewById(R.id.ic_repeat)
+
         playPauseBtn=findViewById(R.id.play_pause)
-        seekBar=findViewById(R.id.seekBar)
+
 
 
 
         playPauseBtn.setOnClickListener{
-            playPauseBtn.setImageResource(R.drawable.ic_baseline_pause_24)
-            playPauseBtn.setOnClickListener{
-                playPauseBtn.setImageResource(R.drawable.ic_baseline_play_arrow_24)
-            }
+            val view:View = layoutInflater.inflate(R.layout.item_bottom_sheet,null)
+            val dialog= BottomSheetDialog(this)
+            dialog.setContentView(view)
+            dialog.show()
         }
         val bundle = intent.extras
-        val fetchData = bundle!!.getSerializable("key") as SongData?
+       // val fetchData = bundle!!.getSerializable("key") as SongData?
 
 
 
