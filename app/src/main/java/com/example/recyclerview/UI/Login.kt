@@ -1,7 +1,9 @@
 package com.example.recyclerview.UI
 
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -17,10 +19,12 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 class Login : AppCompatActivity() {
+    lateinit var sharedPreferences: SharedPreferences
+    var isRemembered=false
     var mEmail: EditText? = null
     var mPassword: EditText? = null
     var mLoginBtn: Button? = null
-    var checkbox: CheckBox? = null
+    var checkboxx: CheckBox? = null
     var mCreateBtn: TextView? = null
     var forgotTextLink: TextView? = null
     var progressBar: ProgressBar? = null
@@ -35,10 +39,28 @@ class Login : AppCompatActivity() {
         mLoginBtn = findViewById(R.id.loginBtn)
         mCreateBtn = findViewById(R.id.createText)
         forgotTextLink = findViewById(R.id.forgotPassword)
+        checkboxx=findViewById(R.id.checkBox)
+
+
+        sharedPreferences=getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
+        isRemembered=sharedPreferences.getBoolean("CHECKBOX",false)
+        if (isRemembered){
+            val intent=Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         mLoginBtn!!.setOnClickListener(View.OnClickListener {
             val email = mEmail!!.getText().toString().trim { it <= ' ' }
             val password = mPassword!!.getText().toString().trim { it <= ' ' }
+            val checked:Boolean=checkboxx!!.isChecked
+            val editor:SharedPreferences.Editor=sharedPreferences.edit()
+            editor.putString("EMAIL",email)
+            editor.putString("PASSWORD",password)
+            editor.putBoolean("CHECKBOX",checked)
+            editor.apply()
+            Toast.makeText(this,"Information Saved",Toast.LENGTH_LONG).show()
+
             if (TextUtils.isEmpty(email)) {
                 mEmail!!.setError("Email is Required.")
                 return@OnClickListener
