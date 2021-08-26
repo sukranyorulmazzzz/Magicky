@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/add.xml" value="0.17604166666666668" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/back.xml" value="0.1734375" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/cerceve.xml" value="0.1984375" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/cerceve2.xml" value="0.24479166666666666" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/dragg.xml" value="0.17604166666666668" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/gradient.xml" value="0.17604166666666668" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/gradientiki.xml" value="0.1796875" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/gradientsiyahbeyaz.xml" value="0.1796875" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/gradientuc.xml" value="0.1796875" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/ic_baseline_chevron_left_24.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/ic_baseline_chevron_right_24.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/ic_baseline_pause_24.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/ic_baseline_repeat_24.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/ic_baseline_shuffle_24.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/ic_favorite_red_24dp.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/ic_favorite_shadow_24dp.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/main_bg.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/pausesong.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/playsong.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/playwhite.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/playyeni.xml" value="0.1734375" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/search.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/drawable/search_layout.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout-v21/item2.xml" value="0.4" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/activity_edit_profile.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/activity_favourite.xml" value="0.1" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/activity_home_yeni.xml" value="0.176" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/activity_login.xml" value="0.176" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/activity_new.xml" value="0.1" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/activity_profile.xml" value="0.1" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/activity_search.xml" value="0.2" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/activity_song.xml" value="0.16" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/activity_splash.xml" value="0.264" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/custom_dialog.xml" value="0.1" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/item.xml" value="0.16" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/item_bottom_sheet.xml" value="0.19882246376811594" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/item_list.xml" value="0.1" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/itemfavourite.xml" value="0.16077898550724637" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/rv_layout.xml" value="0.1" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/search_outline.xml" value="0.2151268115942029" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/layout/songs_item.xml" value="0.2346014492753623" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/menu/custom_menu.xml" value="0.1" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/menu/iconmenu.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/sukra/Desktop/kotlin/RecyclerView/app/src/main/res/menu/menu.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
