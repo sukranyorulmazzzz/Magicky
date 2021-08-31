@@ -1,4 +1,4 @@
-package com.example.recyclerview.UI
+package com.example.recyclerview.Adapter
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.view.LayoutInflater
 import com.example.recyclerview.R
 import com.example.recyclerview.Song
+import com.example.recyclerview.UI.MyViewHolderFavourite
 import java.util.ArrayList
 
 class CustomAdapter(var c: Context, var song: ArrayList<Song>) :

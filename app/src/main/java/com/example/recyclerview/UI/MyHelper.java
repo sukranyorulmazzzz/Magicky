@@ -12,6 +12,7 @@ public class MyHelper {
     Realm realm;
     RealmResults<Song> song;
     public MyHelper(Realm realm){
+
         this.realm=realm;
     }
     public void selectFromDB(){

@@ -37,10 +37,11 @@
 
 
     </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewfavourite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/recyclerviewfavourite"
         android:layout_marginTop="101dp"
-        tools:listitem="@layout/item"/>
+        tools:listitem="@layout/itemfavourite" />
 </RelativeLayout>
