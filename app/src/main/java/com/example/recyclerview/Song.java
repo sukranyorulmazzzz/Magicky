@@ -1,6 +1,8 @@
 package com.example.recyclerview;
 
-public class Song {
+import io.realm.RealmObject;
+
+public class Song extends RealmObject {
 
     public String songName, image, status;
 

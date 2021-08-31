@@ -1,0 +1,4 @@
+package rx
+
+class Observable {
+}

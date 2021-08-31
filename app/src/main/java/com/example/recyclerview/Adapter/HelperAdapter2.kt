@@ -1,4 +1,5 @@
 package com.example.recyclerview.Adapter
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,17 +11,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.R
 import java.util.ArrayList
 import android.content.Intent
+import android.util.Log
 import com.example.recyclerview.Song
+import com.example.recyclerview.UI.MyApplication
+import com.example.recyclerview.UI.MyHelper
+import com.example.recyclerview.UI.NewActivity
 import com.example.recyclerview.UI.SongActivity
 import com.google.firebase.database.FirebaseDatabase
+import io.realm.Realm
+import io.realm.Realm.getApplicationContext
+import io.realm.RealmChangeListener
 
 
 class HelperAdapter2(var fetchData: ArrayList<Song>) : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
 
-
-    lateinit var favouriteList: ArrayList<String>
-
-    var subitemListFinal = ArrayList<String>()
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -38,6 +42,7 @@ class HelperAdapter2(var fetchData: ArrayList<Song>) : RecyclerView.Adapter<Recy
             val intent = Intent(view.context, SongActivity::class.java)
             val bundle = Bundle()
              view.context.startActivity(intent)
+
         }
     }
 
@@ -52,34 +57,38 @@ class HelperAdapter2(var fetchData: ArrayList<Song>) : RecyclerView.Adapter<Recy
         var imagebutton:ImageButton
 
 
+        var realm: Realm? = null
+        var helper: MyHelper? = null
+        var realmChangeListener: RealmChangeListener<*>? = null
+
         init {
             textView = itemView.findViewById(R.id.maintextView)
             imagebutton=itemView.findViewById(R.id.likebutton)
 
+            Realm.init(itemView.context)
+            realm = Realm.getDefaultInstance()
+
+
 
             imagebutton.setOnClickListener{
 
-                imagebutton.setImageResource(R.drawable.ic_favorite_red_24dp)
 
-                favouriteList = java.util.ArrayList()
-                var database = FirebaseDatabase.getInstance()
-                var myRef = database.getReference("Favorite")
-                //favouriteList.add(fetchData[position].songName)
-                var id=myRef.push()
-                id.child("id").setValue(id.key.toString())
-                id.child("songName").setValue(fetchData[position].songName)
+                realm!!.executeTransactionAsync({ realm ->
+                     val song = realm.createObject(Song::class.java)
+                    song.setsongName(fetchData[position].songName)
+                }, {   imagebutton.setImageResource(R.drawable.ic_favorite_red_24dp)
 
-                imagebutton.setOnClickListener {
-                    Toast.makeText(it.context,
-                        "You already liked..",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                      }
-            }
-            }
-            }
-            }
+                    Toast.makeText(itemView.context, "Success", Toast.LENGTH_LONG).show()
+                }
+                )
+                {Toast.makeText(itemView.context, "Fail", Toast.LENGTH_LONG).show()
+                }
+              }}
+
+
+    }
 
 
 
+}
 

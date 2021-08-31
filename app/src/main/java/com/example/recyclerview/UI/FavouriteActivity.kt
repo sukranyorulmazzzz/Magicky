@@ -1,60 +1,56 @@
 package com.example.recyclerview.UI
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.recyclerview.Adapter.HelperAdapter2
 import com.example.recyclerview.R
-import com.example.recyclerview.Song
-import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_favourite.*
+import com.example.recyclerview.UI.CustomAdapter
+import com.example.recyclerview.UI.MyHelper
+import io.realm.Realm
+import io.realm.RealmChangeListener
 
 class FavouriteActivity : AppCompatActivity() {
-    var recyclerView: RecyclerView? = null
-    var helperAdapter2: HelperAdapter2? = null
-    var databaseReference: DatabaseReference? = null
-    lateinit var songData: java.util.ArrayList<Song>
-    var backbutton: ImageView? = null
 
-
+    var realm: Realm? = null
+    var rv: RecyclerView? = null
+    var helper: MyHelper? = null
+    var realmChangeListener: RealmChangeListener<*>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favourite)
 
-        backbutton=findViewById(R.id.back_btn2)
-        backbutton!!.setOnClickListener {
-            val intent=Intent(this,MainActivity::class.java)
-            startActivity(intent)
-        }
+        rv = findViewById(R.id.recyclerviewfavourite)
 
-        recyclerView = findViewById(R.id.recyclerviewfavourite)
-        recyclerView!!.setLayoutManager(
-            LinearLayoutManager(
-                this,
-                LinearLayoutManager.VERTICAL,
-                false
-            )
-        )
-        songData = java.util.ArrayList()
-        databaseReference = FirebaseDatabase.getInstance().getReference("Favorite")
-        databaseReference!!.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                for (ds in dataSnapshot.children) {
-                    val fetchDatalist = ds.getValue(Song::class.java)
-                    if (fetchDatalist != null) {
-                        songData!!.add(fetchDatalist)
-                    }
-                }
-                helperAdapter2 = HelperAdapter2(songData!!)
-                recyclerviewfavourite!!.setAdapter(helperAdapter2)
-            }
+        Realm.init(this)
 
-            override fun onCancelled(databaseError: DatabaseError) {}
-        })
 
+        realm = Realm.getDefaultInstance()
+        helper = MyHelper(realm)
+        helper!!.selectFromDB()
+        val adapter = CustomAdapter(this, helper!!.justRefresh())
+        rv!!.setLayoutManager(LinearLayoutManager(this))
+        rv!!.setAdapter(adapter)
+        refresh()
     }
+
+    private fun refresh() {
+        realmChangeListener = RealmChangeListener<Any?> {
+            val adapter = CustomAdapter(this, helper!!.justRefresh())
+            rv!!.adapter = adapter
+        }
+        realm!!.addChangeListener(realmChangeListener as RealmChangeListener<Realm>)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        realm!!.removeChangeListener(realmChangeListener as RealmChangeListener<Realm>)
+        realm!!.close()
+    }
+
+
 }
